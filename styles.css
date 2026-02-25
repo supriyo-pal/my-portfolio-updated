@@ -122,7 +122,9 @@ nav {
 
 /* Hero */
 .hero {
-  height: 100vh;
+  min-height: 100vh;
+  padding-top: 70px;
+  /* Offset for fixed header height */
   display: flex;
   align-items: center;
   position: relative;
