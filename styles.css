@@ -1,0 +1,356 @@
+:root {
+  /* Dark Theme (Default) */
+  --primary: #0f172a;
+  --secondary: #1e293b;
+  --accent: #22d3ee;
+  --accent-hover: #0891b2;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --bg-dark: #020617;
+  --card-bg: #1e293b;
+  --header-bg: rgba(2, 6, 23, 0.8);
+  --section-bg: rgba(255, 255, 255, 0.01);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="light"] {
+  --primary: #f1f5f9;
+  --secondary: #e2e8f0;
+  --accent: #0891b2;
+  --accent-hover: #0e7490;
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --bg-dark: #ffffff;
+  --card-bg: #f8fafc;
+  --header-bg: rgba(255, 255, 255, 0.8);
+  --section-bg: #f1f5f9;
+  --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--text-main);
+  background-color: var(--bg-dark);
+  line-height: 1.6;
+  overflow-x: hidden;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Header */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background: var(--header-bg);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: var(--transition);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+}
+
+.logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: var(--text-main);
+}
+
+.logo span {
+  color: var(--accent);
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-muted);
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: var(--transition);
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: var(--transition);
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-toggle:hover {
+  color: var(--accent);
+  transform: rotate(15deg);
+}
+
+/* Hero */
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  background: radial-gradient(circle at 10% 20%, rgba(34, 211, 238, 0.05) 0%, transparent 50%);
+}
+
+.hero-content {
+  max-width: 700px;
+  z-index: 2;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: rgba(34, 211, 238, 0.1);
+  color: var(--accent);
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(34, 211, 238, 0.2);
+}
+
+.hero h1 {
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  letter-spacing: -1px;
+}
+
+.hero h1 span {
+  background: linear-gradient(to right, var(--accent), #818cf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  margin-bottom: 2.5rem;
+}
+
+/* Section Common */
+section {
+  padding: 100px 0;
+  background: var(--bg-dark);
+}
+
+.section-bg {
+  background: var(--section-bg) !important;
+}
+
+.section-label {
+  color: var(--accent);
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  letter-spacing: -0.5px;
+}
+
+/* Experience Cards */
+.experience-grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.exp-card {
+  background: var(--card-bg);
+  padding: 2.5rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: var(--transition);
+}
+
+.exp-card:hover {
+  border-color: rgba(34, 211, 238, 0.3);
+  transform: translateY(-5px);
+  box-shadow: var(--shadow);
+}
+
+.exp-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  align-items: flex-start;
+}
+
+.role h3 {
+  font-size: 1.5rem;
+  color: var(--text-main);
+}
+
+.company {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.date {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* Skills/Expertise */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+}
+
+.skill-category h4 {
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.skill-category h4 i {
+  color: var(--accent);
+}
+
+.skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.skill-tag {
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* Project Cards */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.project-card {
+  background: var(--card-bg);
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: var(--transition);
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent);
+}
+
+.project-content {
+  padding: 2rem;
+}
+
+.project-content h3 {
+  margin-bottom: 1rem;
+}
+
+.project-content p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* CTAs */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  border-radius: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.btn-accent {
+  background: var(--accent);
+  color: var(--bg-dark);
+}
+
+.btn-accent:hover {
+  background: var(--accent-hover);
+  transform: scale(1.05);
+}
+
+.btn-outline {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-main);
+  margin-left: 1rem;
+}
+
+.btn-outline:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Footer */
+footer {
+  padding: 50px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .skills-grid,
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  nav .btn {
+    display: none;
+  }
+}
